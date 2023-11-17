@@ -1,59 +1,85 @@
--- numeri di linea
-vim.opt.number = true  -- Mostra i numeri di riga
-vim.opt.relativenumber = true  -- Usa numeri di riga relativi
-
-
--- indentazione
-vim.opt.expandtab = true  -- Converte i tab in spazi
-vim.opt.shiftwidth = 4  -- Indentazione di 4 spazi
-vim.opt.tabstop = 4  -- Un tab è considerato di 4 spazi
-vim.opt.smartindent = true  -- Indentazione intelligente
-
-
--- ricerca
-vim.opt.ignorecase = true  -- Ignora maiuscole/minuscole in ricerca
-vim.opt.smartcase = true  -- Utilizza il case-sensitive se la ricerca contiene maiuscole
-vim.opt.incsearch = true  -- Ricerca incrementale
-vim.opt.hlsearch = true  -- Evidenzia tutte le corrispondenze di ricerca
-
-
--- wrap
-vim.opt.wrap = false  -- Disabilita il wrapping di testo
-vim.opt.scrolloff = 8  -- Inizia a scorrere quando ci si avvicina ai bordi dello schermo
-vim.opt.sidescrolloff = 8  -- Stessa cosa per lo scorrimento laterale
-vim.opt.textwidth = 80  -- Imposta la larghezza massima del testo (buona per LaTeX)
-
-
--- colore
-vim.opt.termguicolors = true  -- Abilita i colori RGB in terminali compatibili
-vim.opt.cursorline = true  -- Evidenzia la linea del cursore
-
-
--- backup 
-vim.opt.backup = false  -- Disabilita file di backup
-vim.opt.swapfile = false  -- Disabilita file di swap
-vim.opt.undofile = true  -- Abilita file di undo persistente
-vim.opt.history = 1000  -- Aumenta il numero di comandi memorizzati nella storia
-
-
--- generali
-vim.opt.clipboard = "unnamedplus"  -- Usa il clipboard di sistema
-vim.opt.mouse = "a"  -- Abilita il supporto al mouse in tutti i modi
-vim.opt.showmode = false  -- Non mostrare la modalità corrente (es. -- INSERT --)
-vim.opt.conceallevel = 0  -- Mostra tutti i caratteri nascosti in LaTeX
-
-
--- split
-vim.opt.splitright = true  -- Apri nuovi split verticali a destra
-vim.opt.splitbelow = true  -- Apri nuovi split orizzontali in basso
-
-
--- spell
-vim.opt.spell = true  -- Abilita il controllo ortografico
-vim.opt.spelllang = { 'en', 'it' }  -- Imposta le lingue per il controllo ortografico
-
-
-
--- leader
+-- Leader Key Configuration
+-- Remap space as the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+-- Line Numbers
+-- Display line numbers
+vim.opt.number = true
+-- Use relative line numbers
+vim.opt.relativenumber = true
+
+-- Indentation Settings
+-- Convert tabs to spaces
+vim.opt.expandtab = true
+-- Set the number of spaces for indentation
+vim.opt.shiftwidth = 4
+-- Consider a tab as equal to 4 spaces
+vim.opt.tabstop = 4
+-- Enable intelligent indentation
+vim.opt.smartindent = true
+
+-- Search Configuration
+-- Ignore case in search patterns
+vim.opt.ignorecase = true
+-- Use case-sensitive search if the search pattern contains upper case characters
+vim.opt.smartcase = true
+-- Enable incremental search
+vim.opt.incsearch = true
+-- Highlight all search pattern matches
+vim.opt.hlsearch = true
+
+-- Text Wrapping and Scrolling
+-- Disable text wrapping
+vim.opt.wrap = false
+-- Start scrolling when getting close to the screen edges
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+-- Set maximum text width, useful for LaTeX
+vim.opt.textwidth = 80
+
+-- Color and Highlighting
+-- Enable RGB colors in compatible terminals
+vim.opt.termguicolors = true
+-- Highlight the line of the cursor
+vim.opt.cursorline = true
+-- column for indentation
+vim.opt.colorcolumn = '80'
+
+-- Backup and Undo Files
+-- Disable backup file creation
+vim.opt.backup = false
+-- Disable swap file creation
+vim.opt.swapfile = false
+-- Enable persistent undo
+vim.opt.undofile = true
+-- Increase the number of commands stored in history
+vim.opt.history = 1000
+
+-- General Settings
+-- Use the system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- Enable mouse support in all modes
+vim.opt.mouse = "a"
+-- Don't show the current mode (e.g., -- INSERT --)
+vim.opt.showmode = false
+-- Show all hidden characters in LaTeX
+vim.opt.conceallevel = 0
+
+-- Split Windows
+-- Open new vertical splits to the right
+vim.opt.splitright = true
+-- Open new horizontal splits below
+vim.opt.splitbelow = true
+
+-- Spell Checking
+-- Enable spell checking
+vim.opt.spell = true
+-- Set spell checking languages
+vim.opt.spelllang = { 'en', 'it' }
+
+-- Miscellaneous
+-- Always show the sign column
+vim.opt.signcolumn = "yes"
+
+
