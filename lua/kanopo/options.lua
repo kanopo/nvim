@@ -13,9 +13,9 @@ vim.opt.relativenumber = true
 -- Convert tabs to spaces
 vim.opt.expandtab = true
 -- Set the number of spaces for indentation
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 -- Consider a tab as equal to 4 spaces
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 -- Enable intelligent indentation
 vim.opt.smartindent = true
 
@@ -36,7 +36,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 -- Set maximum text width, useful for LaTeX
-vim.opt.textwidth = 80
+vim.opt.textwidth = 90
 
 -- Color and Highlighting
 -- Enable RGB colors in compatible terminals
@@ -44,7 +44,7 @@ vim.opt.termguicolors = true
 -- Highlight the line of the cursor
 vim.opt.cursorline = true
 -- column for indentation
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '90'
 
 -- Backup and Undo Files
 -- Disable backup file creation
