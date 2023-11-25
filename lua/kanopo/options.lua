@@ -36,7 +36,7 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 -- Set maximum text width, useful for LaTeX
-vim.opt.textwidth = 90
+vim.opt.textwidth = 100
 
 -- Color and Highlighting
 -- Enable RGB colors in compatible terminals
@@ -44,7 +44,7 @@ vim.opt.termguicolors = true
 -- Highlight the line of the cursor
 vim.opt.cursorline = true
 -- column for indentation
-vim.opt.colorcolumn = '90'
+vim.opt.colorcolumn = '100'
 
 -- Backup and Undo Files
 -- Disable backup file creation
@@ -64,7 +64,7 @@ vim.opt.mouse = "a"
 -- Don't show the current mode (e.g., -- INSERT --)
 vim.opt.showmode = false
 -- Show all hidden characters in LaTeX
-vim.opt.conceallevel = 0
+vim.opt.conceallevel = 1 
 
 -- Split Windows
 -- Open new vertical splits to the right
@@ -83,3 +83,10 @@ vim.opt.spelllang = { 'en', 'it' }
 vim.opt.signcolumn = "yes"
 
 
+vim.opt.cmdheight = 0
+
+
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
