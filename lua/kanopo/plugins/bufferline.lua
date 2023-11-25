@@ -19,7 +19,7 @@ local M = {
   },
   config = function(_, opts)
     local bufferline = require("bufferline")
-    bufferline.setup()
+    bufferline.setup(opts)
 
     vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>BufferLineTogglePin<cr>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { noremap = true, silent = true })

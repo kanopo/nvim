@@ -13,9 +13,9 @@ vim.opt.relativenumber = true
 -- Convert tabs to spaces
 vim.opt.expandtab = true
 -- Set the number of spaces for indentation
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
 -- Consider a tab as equal to 4 spaces
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 -- Enable intelligent indentation
 vim.opt.smartindent = true
 
