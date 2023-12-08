@@ -13,9 +13,9 @@ vim.opt.relativenumber = true
 -- Convert tabs to spaces
 vim.opt.expandtab = true
 -- Set the number of spaces for indentation
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 -- Consider a tab as equal to 4 spaces
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 -- Enable intelligent indentation
 vim.opt.smartindent = true
 
@@ -33,10 +33,10 @@ vim.opt.hlsearch = true
 -- Disable text wrapping
 vim.opt.wrap = false
 -- Start scrolling when getting close to the screen edges
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+-- vim.opt.scrolloff = 999
+-- vim.opt.sidescrolloff = 8
 -- Set maximum text width, useful for LaTeX
-vim.opt.textwidth = 100
+-- vim.opt.textwidth = 100
 
 -- Color and Highlighting
 -- Enable RGB colors in compatible terminals
@@ -44,7 +44,7 @@ vim.opt.termguicolors = true
 -- Highlight the line of the cursor
 vim.opt.cursorline = true
 -- column for indentation
-vim.opt.colorcolumn = '100'
+vim.opt.colorcolumn = "100"
 
 -- Backup and Undo Files
 -- Disable backup file creation
@@ -64,7 +64,7 @@ vim.opt.mouse = "a"
 -- Don't show the current mode (e.g., -- INSERT --)
 vim.opt.showmode = false
 -- Show all hidden characters in LaTeX
-vim.opt.conceallevel = 1 
+vim.opt.conceallevel = 3
 
 -- Split Windows
 -- Open new vertical splits to the right
@@ -76,15 +76,13 @@ vim.opt.splitbelow = true
 -- Enable spell checking
 vim.opt.spell = true
 -- Set spell checking languages
-vim.opt.spelllang = { 'en', 'it' }
+vim.opt.spelllang = { "en", "it" }
 
 -- Miscellaneous
 -- Always show the sign column
 vim.opt.signcolumn = "yes"
 
-
 vim.opt.cmdheight = 0
-
 
 vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99
