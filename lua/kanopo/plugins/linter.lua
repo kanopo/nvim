@@ -14,6 +14,7 @@ return {
 			typescript = { "eslint_d" },
 			javascript = { "eslint_d" },
 			latex = { "vale" },
+			yaml = { "yamllint", "cfn-lint" },
 		}
 		--
 		-- local lint_auto_group = vim.api.nvim_create_augroup("lint", {
