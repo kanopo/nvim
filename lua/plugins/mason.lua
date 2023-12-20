@@ -24,6 +24,11 @@ return {
 				"tsserver",
 				"lua_ls",
 				"pyright",
+				"texlab",
+				"clangd",
+				"gopls",
+				"yamlls",
+				"dockerls",
 			},
 			automatic_installation = true, -- not the same as ensure_installed
 		})
@@ -41,6 +46,11 @@ return {
 				"isort",
 				"black",
 				"pylint",
+
+				-- c
+				"clang-format",
+
+				"cfn-lint",
 			},
 		})
 	end,

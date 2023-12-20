@@ -76,7 +76,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				theme = "gruvbox_baby",
+				theme = "gruvbox-baby",
 			},
 		},
 	},

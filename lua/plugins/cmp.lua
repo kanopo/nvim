@@ -1,3 +1,8 @@
+local check_backspace = function()
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
+end
+
 return {
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
@@ -8,11 +13,24 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"zbirenbaum/copilot.lua",
+		"zbirenbaum/copilot-cmp",
 	},
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
+
+		require("copilot_cmp").setup({
+			suggestion = {
+				suggestion = {
+					enabled = false,
+				},
+				panel = {
+					enabled = false,
+				},
+			},
+		})
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -25,21 +43,56 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-				["<C-e>"] = cmp.mapping.abort(), -- close completion window
-				["<CR>"] = cmp.mapping.confirm({ select = false }),
-			}),
+			mapping = {
+				-- used to bring up the completion
+				["<C-Space>"] = cmp.mapping.complete(),
+				-- moving with tab and shift tab
+				["<Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					elseif luasnip.expandable() then
+						luasnip.expand()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
+					elseif check_backspace() then
+						fallback()
+					else
+						fallback()
+					end
+				end, {
+					"i",
+					"s",
+				}),
+				["<S-Tab>"] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end, {
+					"i",
+					"s",
+				}),
+				-- exit suggestions
+				["<C-c>"] = cmp.mapping({
+					i = cmp.mapping.abort(),
+					c = cmp.mapping.close(),
+				}),
+				-- The ENTER key select the cmp suggestion
+				["<CR>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Insert,
+					select = true,
+				}),
+			},
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "copilot" }, -- file system paths
 			}),
 
 			formatting = {
