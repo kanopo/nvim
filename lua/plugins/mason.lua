@@ -44,7 +44,6 @@ return {
 
 				-- python
 				"isort",
-				"black",
 				"pylint",
 
 				-- c
