@@ -29,6 +29,7 @@ return {
 				"gopls",
 				"yamlls",
 				"dockerls",
+				"rust_analyzer",
 			},
 			automatic_installation = true, -- not the same as ensure_installed
 		})

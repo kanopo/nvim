@@ -5,6 +5,9 @@ local M = {
 	opts = {
 		suggestion = { enabled = false },
 		panel = { enabled = false },
+		filetypes = {
+			yaml = true,
+		},
 	},
 }
 
