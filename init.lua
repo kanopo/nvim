@@ -1,5 +1,8 @@
+require("config.options")
+require("config.lazy")
 
-require("kanopo.options")
-require("kanopo.lazy")
+require("config.autocmds")
+require("config.mappings")
+
 
 
