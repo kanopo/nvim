@@ -32,3 +32,9 @@ vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+
+-- options recommended by nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- recommended by bufferline and nvim-tree (and pretty much anyone not using just the 16 terminal colors)
+vim.o.termguicolors = true
