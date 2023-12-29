@@ -15,6 +15,7 @@ return {
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 		"zbirenbaum/copilot.lua",
 		"zbirenbaum/copilot-cmp",
+		"f3fora/cmp-spell",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -93,6 +94,15 @@ return {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 				{ name = "copilot" }, -- file system paths
+				{
+					name = "spell",
+					option = {
+						keep_all_entries = true,
+						enable_in_context = function()
+							return true
+						end,
+					},
+				},
 			}),
 
 			formatting = {
