@@ -20,3 +20,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	group = center_group,
 	pattern = "*",
 })
+
+local cursor_group = vim.api.nvim_create_augroup("CursorCenter", { clear = true })
+vim.api.nvim_create_autocmd("CursorMoved", {
+	command = "normal zz",
+	group = cursor_group,
+	pattern = "*",
+})
