@@ -13,17 +13,17 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	group = edit_group,
 	pattern = "*",
 })
-
-local center_group = vim.api.nvim_create_augroup("BufferlineCenter", { clear = true })
-vim.api.nvim_create_autocmd("BufEnter", {
-	command = "normal zz",
-	group = center_group,
-	pattern = "*",
-})
-
-local cursor_group = vim.api.nvim_create_augroup("CursorCenter", { clear = true })
-vim.api.nvim_create_autocmd("CursorMoved", {
-	command = "normal zz",
-	group = cursor_group,
-	pattern = "*",
-})
+--
+-- local center_group = vim.api.nvim_create_augroup("BufferlineCenter", { clear = true })
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	command = "normal zz",
+-- 	group = center_group,
+-- 	pattern = "*",
+-- })
+--
+-- local cursor_group = vim.api.nvim_create_augroup("CursorCenter", { clear = true })
+-- vim.api.nvim_create_autocmd("CursorMoved", {
+-- 	command = "normal zz",
+-- 	group = cursor_group,
+-- 	pattern = "*",
+-- })

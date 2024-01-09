@@ -16,7 +16,6 @@ return {
 		"zbirenbaum/copilot.lua",
 		"zbirenbaum/copilot-cmp",
 		"f3fora/cmp-spell",
-		"Exafunction/codeium.vim",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -95,7 +94,6 @@ return {
 				{ name = "buffer", max_item_count = 5 }, -- text within current buffer
 				{ name = "path", max_item_count = 5 }, -- file system paths
 				{ name = "copilot", max_item_count = 5 }, -- file system paths
-				{ name = "codeium", max_item_count = 5 },
 				-- {
 				-- 	name = "spell",
 				-- 	option = {
