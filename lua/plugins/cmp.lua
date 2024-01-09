@@ -16,6 +16,7 @@ return {
 		"zbirenbaum/copilot.lua",
 		"zbirenbaum/copilot-cmp",
 		"f3fora/cmp-spell",
+		"Exafunction/codeium.vim",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -90,19 +91,21 @@ return {
 			-- sources for autocompletion
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- snippets
-				{ name = "buffer" }, -- text within current buffer
-				{ name = "path" }, -- file system paths
-				{ name = "copilot" }, -- file system paths
-				{
-					name = "spell",
-					option = {
-						keep_all_entries = true,
-						enable_in_context = function()
-							return true
-						end,
-					},
-				},
+				{ name = "luasnip", max_item_count = 5 }, -- snippets
+				{ name = "buffer", max_item_count = 5 }, -- text within current buffer
+				{ name = "path", max_item_count = 5 }, -- file system paths
+				{ name = "copilot", max_item_count = 5 }, -- file system paths
+				{ name = "codeium", max_item_count = 5 },
+				-- {
+				-- 	name = "spell",
+				-- 	option = {
+				-- 		keep_all_entries = true,
+				-- 		enable_in_context = function()
+				-- 			return true
+				-- 		end,
+				-- 	},
+				-- 	max_item_count = 3,
+				-- },
 			}),
 
 			formatting = {
