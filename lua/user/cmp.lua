@@ -36,6 +36,12 @@ local M = {
     {
       "hrsh7th/cmp-nvim-lua",
     },
+    {
+      "zbirenbaum/copilot.lua"
+    },
+    {
+      "zbirenbaum/copilot-cmp"
+    },
   },
 }
 
@@ -48,6 +54,17 @@ function M.config()
   local cmp = require "cmp"
   local luasnip = require "luasnip"
   require("luasnip/loaders/from_vscode").lazy_load()
+
+  require("copilot_cmp").setup({
+    suggestion = {
+      suggestion = {
+        enable = false,
+      },
+      panel = {
+        enable = false,
+      },
+    },
+  })
 
   local check_backspace = function()
     local col = vim.fn.col "." - 1
@@ -150,15 +167,10 @@ function M.config()
       { name = "copilot" },
       { name = "nvim_lsp" },
       { name = "luasnip" },
-      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
       { name = "buffer" },
       { name = "path" },
-      { name = "calc" },
       { name = "emoji" },
-      { name = "treesitter" },
-      { name = "crates" },
-      { name = "tmux" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
