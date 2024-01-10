@@ -15,6 +15,7 @@ M.servers = {
   "yamlls",
   "marksman",
   "tailwindcss",
+  "texlab",
 }
 
 function M.config()

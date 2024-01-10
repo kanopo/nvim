@@ -55,6 +55,7 @@ function M.config()
     "yamlls",
     "marksman",
     "tailwindcss",
+    "texlab",
   }
 
   local default_diagnostic_config = {
