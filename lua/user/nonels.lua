@@ -10,9 +10,10 @@ function M.config()
   null_ls.setup {
     sources = {
       formatting.stylua,
-      null_ls.builtins.formatting.eslint,
-      null_ls.builtins.diagnostics.eslint,
-      null_ls.builtins.completion.spell,
+      null_ls.builtins.formatting.eslint_d,
+      null_ls.builtins.diagnostics.eslint_d,
+
+      null_ls.builtins.formatting.latexindent,
     },
   }
 end
