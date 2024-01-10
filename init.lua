@@ -1,6 +1,7 @@
 require("user.launch")
 require("user.options")
 require("user.keymaps")
+require("user.autocmds")
 
 spec("user.coloscheme")
 spec("user.devicons")
@@ -25,6 +26,7 @@ spec("user.breadcrumbs")
 spec("user.navic")
 spec("user.dap")
 spec("user.dapui")
+spec("user.dressing")
 
 
 
