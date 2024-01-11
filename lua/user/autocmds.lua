@@ -66,11 +66,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- keep centered cursor
-vim.api.nvim_create_autocmd("CursorMoved", {
-  callback = function()
-    if vim.fn.mode() == "n" then
-      vim.cmd("normal! zz")
-    end
-  end,
-})
+-- -- keep centered cursor
+-- vim.api.nvim_create_autocmd("CursorMoved", {
+--   callback = function()
+--     if vim.fn.mode() == "n" then
+--       vim.cmd("normal! zz")
+--     end
+--   end,
+-- })
+
+
