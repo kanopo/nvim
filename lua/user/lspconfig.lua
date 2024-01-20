@@ -56,6 +56,10 @@ function M.config()
     "marksman",
     "tailwindcss",
     "texlab",
+    "astro",
+    "pyright",
+    "htmx",
+    "glint",
   }
 
   local default_diagnostic_config = {

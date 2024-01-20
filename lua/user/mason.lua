@@ -16,6 +16,10 @@ M.servers = {
   "marksman",
   "tailwindcss",
   "texlab",
+  "astro",
+  "pyright",
+  "htmx",
+  "glint",
 }
 
 function M.config()

@@ -29,6 +29,7 @@ spec("user.dapui")
 spec("user.dressing")
 spec("user.harpoon")
 spec("user.todo")
+spec("user.scrolloff")
 
 
 

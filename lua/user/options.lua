@@ -33,11 +33,9 @@ vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 5 -- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false -- display lines as one long line
-vim.opt.scrolloff = 0
-vim.opt.sidescrolloff = 8
+vim.opt.scrolloff = 20
+-- vim.opt.sidescrolloff = 8
 vim.opt.title = false
 vim.opt.colorcolumn = "80"
-
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
-

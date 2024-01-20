@@ -60,19 +60,19 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    vim.bo[args.buf].formatexpr = nil
+
+-- Use internal formatting for bindings like gq. 
+ vim.api.nvim_create_autocmd('LspAttach', { 
+   callback = function(args) 
+     vim.bo[args.buf].formatexpr = nil 
+   end, 
+ })
+
+-- jump to last position when opening a file
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  callback = function()
+    vim.cmd [[
+      if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    ]]
   end,
 })
-
--- -- keep centered cursor
--- vim.api.nvim_create_autocmd("CursorMoved", {
---   callback = function()
---     if vim.fn.mode() == "n" then
---       vim.cmd("normal! zz")
---     end
---   end,
--- })
-
-
