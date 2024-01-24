@@ -1,6 +1,4 @@
-local M = {}
-
-M = {
+local M = {
 	"jose-elias-alvarez/null-ls.nvim",
 	event = "BufReadPre",
 	config = function()
@@ -11,8 +9,18 @@ M = {
 
 		null_ls.setup({
 			sources = {
+                -- lua
 				formatting.stylua,
 				diagnostics.luacheck,
+
+                -- typescript
+                formatting.eslint_d,
+                diagnostics.eslint_d,
+
+                --handlebars
+                diagnostics.glint,
+
+
 			},
 		})
 	end,

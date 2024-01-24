@@ -1,8 +1,6 @@
-local M = {}
-
-M = {
-    'stevearc/dressing.nvim',
-    opts = {}
+local M = {
+	"stevearc/dressing.nvim",
+	opts = {},
 }
 
 return M

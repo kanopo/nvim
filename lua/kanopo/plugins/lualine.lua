@@ -1,10 +1,8 @@
-local M = {}
-
-M = {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-        require('lualine').setup({})
-    end
+local M = {
+	"nvim-lualine/lualine.nvim",
+	config = function()
+		require("lualine").setup({})
+	end,
 }
 
 return M
