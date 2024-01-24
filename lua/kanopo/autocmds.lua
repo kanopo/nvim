@@ -87,26 +87,3 @@ api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Jump to last position when opening a file
-api.nvim_create_autocmd("BufReadPost", {
-	callback = function()
-		-- Checks if the last saved position is valid and jumps there
-		vim.cmd([[
-            if line("'\"") > 0 && line("'\"") <= line("$")
-                | exe "normal! g'\""
-                | endif
-        ]])
-	end,
-})
-
--- Custom make program for LaTeX files
-api.nvim_create_autocmd("FileType", {
-	pattern = "tex",
-	callback = function()
-		-- Sets makeprg for LaTeX compilation and cleanup
-		vim.opt_local.makeprg = "latexmk -pdf main.tex; latexmk -c"
-	end,
-})
-
--- This file can be included in your init.lua or other configuration file
--- using 'require' statement.

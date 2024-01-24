@@ -1,6 +1,9 @@
 local M = {
 	"stevearc/dressing.nvim",
-	opts = {},
+	config = function()
+		require("dressing").setup({
+		})
+	end,
 }
 
 return M

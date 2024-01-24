@@ -9,18 +9,13 @@ local M = {
 
 		null_ls.setup({
 			sources = {
-                -- lua
+				-- lua
 				formatting.stylua,
 				diagnostics.luacheck,
 
-                -- typescript
-                formatting.eslint_d,
-                diagnostics.eslint_d,
-
-                --handlebars
-                diagnostics.glint,
-
-
+				-- typescript
+				formatting.eslint_d,
+				diagnostics.eslint_d,
 			},
 		})
 	end,

@@ -3,6 +3,8 @@ local servers = {
     "tsserver",
     "tailwindcss",
     "glint",
+    "html",
+    "cssls"
 }
 
 local tools = {
