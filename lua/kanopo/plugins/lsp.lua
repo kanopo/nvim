@@ -1,17 +1,17 @@
 local servers = {
 	"lua_ls",
-    "tsserver",
-    "tailwindcss",
-    "glint",
-    "html",
-    "cssls"
+	"tsserver",
+	"tailwindcss",
+	"glint",
+	"html",
+	"cssls",
 }
 
 local tools = {
 	"stylua",
 	"luacheck",
-    "eslint_d",
-    "prettier",
+	"eslint_d",
+	"prettier",
 }
 
 local M = {
@@ -48,12 +48,48 @@ local M = {
 				"n",
 				"gd",
 				"<cmd>lua vim.lsp.buf.definition()<cr>",
+				{ noremap = true, silent = true, desc = "[G]o [D]efinition" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"gD",
+				"<cmd>lua vim.lsp.buf.declaration()<cr>",
 				{ noremap = true, silent = true, desc = "[G]o [D]eclaration" }
 			)
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"lf",
+				"K",
+				"<cmd>lua vim.lsp.buf.hover()<cr>",
+				{ noremap = true, silent = true, desc = "Hover" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"gi",
+				"<cmd>lua vim.lsp.buf.implementation()<cr>",
+				{ noremap = true, silent = true, desc = "[G]o [I]mplementation" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>rn",
+				"<cmd>lua vim.lsp.buf.rename()<cr>",
+				{ noremap = true, silent = true, desc = "Rename" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>ca",
+				"<cmd>lua vim.lsp.buf.code_action()<cr>",
+				{ noremap = true, silent = true, desc = "Rename" }
+			)
+
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>f",
 				"<cmd>lua vim.lsp.buf.format()<cr>",
 				{ noremap = true, silent = true, desc = "[L]sp [F]ormat" }
 			)
