@@ -5,6 +5,7 @@ local servers = {
 	"glint",
 	"html",
 	"cssls",
+	"texlab",
 }
 
 local tools = {
@@ -12,6 +13,7 @@ local tools = {
 	"luacheck",
 	"eslint_d",
 	"prettier",
+	"latexindent",
 }
 
 local M = {
@@ -21,6 +23,8 @@ local M = {
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"folke/neodev.nvim",
+		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
 		require("mason").setup({
@@ -42,56 +46,80 @@ local M = {
 			automatic_installation = true,
 		})
 
+		require("neodev").setup({})
+
 		local function on_attach(client, bufnr)
+
+			-- show the diagnostic popup
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"gd",
-				"<cmd>lua vim.lsp.buf.definition()<cr>",
-				{ noremap = true, silent = true, desc = "[G]o [D]efinition" }
+				"<space>sd",
+				"<cmd>Lspsaga show_cursor_diagnostics<cr>",
+				{ noremap = true, silent = true, desc = "Show diagnostic" }
 			)
+
+            -- show all diagnostics
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"gD",
-				"<cmd>lua vim.lsp.buf.declaration()<cr>",
-				{ noremap = true, silent = true, desc = "[G]o [D]eclaration" }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"K",
-				"<cmd>lua vim.lsp.buf.hover()<cr>",
-				{ noremap = true, silent = true, desc = "Hover" }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"gi",
-				"<cmd>lua vim.lsp.buf.implementation()<cr>",
-				{ noremap = true, silent = true, desc = "[G]o [I]mplementation" }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"<space>rn",
-				"<cmd>lua vim.lsp.buf.rename()<cr>",
-				{ noremap = true, silent = true, desc = "Rename" }
-			)
-			vim.api.nvim_buf_set_keymap(
-				bufnr,
-				"n",
-				"<space>ca",
-				"<cmd>lua vim.lsp.buf.code_action()<cr>",
-				{ noremap = true, silent = true, desc = "Rename" }
+				"<space>ld",
+				"<cmd>Telescope diagnostics<cr>",
+				{ noremap = true, silent = true, desc = "List diagnostics" }
 			)
 
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"<space>f",
+				"<space>gd",
+				"<cmd>Telescope lsp_definitions<cr>",
+				{ noremap = true, silent = true, desc = "Definitions" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>gr",
+				"<cmd>Telescope lsp_references<cr>",
+				{ noremap = true, silent = true, desc = "References" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>gD",
+				"<cmd>lua vim.lsp.buf.declaration()<cr>",
+				{ noremap = true, silent = true, desc = "Declaration" }
+			)
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>K",
+				"<cmd>Lspsaga hover_doc<cr>",
+				{ noremap = true, silent = true, desc = "Hover" }
+			)
+
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>KK",
+				"<cmd>lua vim.lsp.buf.signature_help()<cr>",
+				{ noremap = true, silent = true, desc = "Signature help" }
+			)
+
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>gi",
+				"<cmd>Telescope lsp_implementations<cr>",
+				{ noremap = true, silent = true, desc = "Implementations" }
+			)
+
+			-- format
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>fb",
 				"<cmd>lua vim.lsp.buf.format()<cr>",
-				{ noremap = true, silent = true, desc = "[L]sp [F]ormat" }
+				{ noremap = true, silent = true, desc = "Implementations" }
 			)
 			client.server_capabilites.document_formatting = true
 		end
@@ -99,10 +127,28 @@ local M = {
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		for _, server in pairs(servers) do
-			require("lspconfig")[server].setup({
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
+			if server == "lua_ls" then
+				require("lspconfig")[server].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+								path = vim.split(package.path, ";"),
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
+				})
+			else
+				require("lspconfig")[server].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end
 		end
 	end,
 }

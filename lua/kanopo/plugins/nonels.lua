@@ -16,6 +16,9 @@ local M = {
 				-- typescript
 				formatting.eslint_d,
 				diagnostics.eslint_d,
+
+                -- latex
+                formatting.latexindent,
 			},
 		})
 	end,
