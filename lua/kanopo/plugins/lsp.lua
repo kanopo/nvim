@@ -6,6 +6,8 @@ local servers = {
 	"html",
 	"cssls",
 	"texlab",
+	"pyright",
+	"rust_analyzer",
 }
 
 local tools = {
@@ -14,6 +16,8 @@ local tools = {
 	"eslint_d",
 	"prettier",
 	"latexindent",
+	"flake8",
+	"black",
 }
 
 local M = {
@@ -49,7 +53,6 @@ local M = {
 		require("neodev").setup({})
 
 		local function on_attach(client, bufnr)
-
 			-- show the diagnostic popup
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
@@ -59,7 +62,7 @@ local M = {
 				{ noremap = true, silent = true, desc = "Show diagnostic" }
 			)
 
-            -- show all diagnostics
+			-- show all diagnostics
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
@@ -92,7 +95,7 @@ local M = {
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"<space>K",
+				"K",
 				"<cmd>Lspsaga hover_doc<cr>",
 				{ noremap = true, silent = true, desc = "Hover" }
 			)
@@ -100,7 +103,7 @@ local M = {
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
-				"<space>KK",
+				"<space>K",
 				"<cmd>lua vim.lsp.buf.signature_help()<cr>",
 				{ noremap = true, silent = true, desc = "Signature help" }
 			)
@@ -113,13 +116,30 @@ local M = {
 				{ noremap = true, silent = true, desc = "Implementations" }
 			)
 
+			-- rename
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>rn",
+				"<cmd>lua vim.lsp.buf.rename()<cr>",
+				{ noremap = true, silent = true, desc = "Rename" }
+			)
+
+			vim.api.nvim_buf_set_keymap(
+				bufnr,
+				"n",
+				"<space>ca",
+				"<cmd>lua vim.lsp.buf.code_action()<cr>",
+				{ noremap = true, silent = true, desc = "Code actions" }
+			)
+
 			-- format
 			vim.api.nvim_buf_set_keymap(
 				bufnr,
 				"n",
 				"<space>fb",
 				"<cmd>lua vim.lsp.buf.format()<cr>",
-				{ noremap = true, silent = true, desc = "Implementations" }
+				{ noremap = true, silent = true, desc = "Format" }
 			)
 			client.server_capabilites.document_formatting = true
 		end
@@ -133,10 +153,6 @@ local M = {
 					capabilities = capabilities,
 					settings = {
 						Lua = {
-							runtime = {
-								version = "LuaJIT",
-								path = vim.split(package.path, ";"),
-							},
 							diagnostics = {
 								globals = { "vim" },
 							},

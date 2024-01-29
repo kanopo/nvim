@@ -17,8 +17,12 @@ local M = {
 				formatting.eslint_d,
 				diagnostics.eslint_d,
 
-                -- latex
-                formatting.latexindent,
+				-- latex
+				formatting.latexindent,
+
+				-- python
+				formatting.black,
+				diagnostics.flake8,
 			},
 		})
 	end,
