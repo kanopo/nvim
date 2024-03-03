@@ -1,4 +1,4 @@
-local M = {
+return {
 	"ellisonleao/gruvbox.nvim",
 	lazy = false,
 	priority = 1000,
@@ -6,5 +6,3 @@ local M = {
 		vim.cmd.colorscheme("gruvbox")
 	end,
 }
-
-return M

@@ -1,51 +1,83 @@
--- init.lua or a part of your Neovim configuration
--- General settings
-vim.opt.backup = false -- Don't create backup files
-vim.opt.clipboard = "unnamedplus" -- Use system clipboard
-vim.opt.cmdheight = 1 -- Height of the command bar
-vim.opt.completeopt = "menuone,noselect" -- Completion options (for nvim-cmp)
+
+
+-- <space> as GiGa key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+
+-- line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+
+-- don't show the mode
+vim.opt.showmode = false
+
+
+-- use a unique clipboard betwean nvim and OS
+vim.opt.clipboard = "unnamedplus"
+
+-- break indent 
+vim.opt.breakindent = true
+
+
+
+
+-- save undo history
+vim.opt.undofile = true
+
+
+
+-- Case INSENSITIVE search uncless using capital
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- keep sign column on by default
+vim.opt.signcolumn = 'yes'
+
+-- reduced update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+
+-- write in clear the spacing
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+-- 	trail = "·"
+-- }
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
+
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10
+-- old config stuff
+-- TODO: order all the config in a semantic way
 vim.opt.conceallevel = 3 -- Make `` visible in markdown files
 vim.opt.fileencoding = "utf-8" -- Encoding written to file
 vim.opt.hlsearch = true -- Highlight all matches on previous search
-vim.opt.ignorecase = true -- Ignore case in search patterns
-vim.opt.mouse = "a" -- Enable mouse in all modes
-vim.opt.showmode = false -- Don't show mode since we have a statusline
-vim.opt.smartcase = true -- Smart case
-vim.opt.smartindent = true -- Smart indent
-vim.opt.splitbelow = true -- Horizontal splits will automatically be below
-vim.opt.splitright = true -- Vertical splits will automatically be to the right
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.opt.termguicolors = true -- True color support
-vim.opt.timeoutlen = 1000 -- Time in ms to wait for a mapped sequence to complete
 vim.opt.undofile = true -- Enable persistent undo
-vim.opt.updatetime = 300 -- Faster completion (4000ms default)
-vim.opt.writebackup = false -- Don't create a backup file
 
--- UI settings
-vim.opt.cursorline = true -- Highlight the current line
-vim.opt.number = true -- Set numbered lines
-vim.opt.relativenumber = true -- Set relative numbered lines
 vim.opt.numberwidth = 4 -- Set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes" -- Always show the sign column
 vim.opt.wrap = false -- Display long lines as just one line
 
+
+
+
+
 -- Tabs, indent
-vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.shiftwidth = 4 -- Shift 4 spaces when tab
-vim.opt.tabstop = 4 -- 1 tab == 4 spaces
-vim.opt.smarttab = true -- Makes tabbing smarter
-
--- Search
-vim.opt.incsearch = true -- Incremental search
-vim.opt.showmatch = true -- Show matching brackets when text indicator is over them
-
--- For backup and swap files, it's better to place them in a different directory,
--- to avoid clutter. Here is an example:
--- vim.opt.backupdir = "~/.config/nvim/backup//"
--- vim.opt.directory = "~/.config/nvim/swap//"
-
--- Leader key for all the keymaps
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.opt.expandtab = true -- Use spaces instead of tabs
+-- vim.opt.shiftwidth = 4 -- Shift 4 spaces when tab
+-- vim.opt.tabstop = 4 -- 1 tab == 4 spaces
+-- vim.opt.smarttab = true -- Makes tabbing smarter
 
 vim.opt.showtabline = 1
 

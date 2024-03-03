@@ -1,4 +1,4 @@
-local M = {
+return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.5",
 	dependencies = {
@@ -21,9 +21,9 @@ local M = {
 				find_files = {
 					theme = "dropdown",
 				},
-				buffers = {
-					theme = "dropdown",
-				},
+				-- buffers = {
+				-- 	theme = "dropdown",
+				-- },
 			},
 			extensions = {
 				fxf = {
@@ -37,8 +37,6 @@ local M = {
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { silent = true, desc = "[F]ind [F]iles" })
 		vim.keymap.set("n", "<leader>rg", builtin.live_grep, { silent = true, desc = "[R]ip [G]rep" })
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, { silent = true, desc = "[F]ind [B]uffer" })
+		-- vim.keymap.set("n", "<leader>fb", builtin.buffers, { silent = true, desc = "[F]ind [B]uffer" })
 	end,
 }
-
-return M

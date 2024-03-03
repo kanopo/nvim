@@ -1,4 +1,4 @@
-local M = {
+return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
 	dependencies = {
@@ -10,5 +10,3 @@ local M = {
 		vim.keymap.set("n", "<leader>fe", "<cmd>Neotree toggle<cr>", { silent = true, desc = "[F]ile [E]xplorer" })
 	end,
 }
-
-return M

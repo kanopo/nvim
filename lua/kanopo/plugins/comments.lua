@@ -1,12 +1,5 @@
-local M = {
+return {
 	"numToStr/Comment.nvim",
 	event = "BufRead",
-	config = function()
-		require("Comment").setup({
-			padding = true,
-			ignore = "^$",
-		})
-	end,
+	opts = {}
 }
-
-return M
