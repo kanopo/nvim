@@ -8,6 +8,12 @@ local servers = {
 	"texlab",
 	"pyright",
 	"rust_analyzer",
+    "htmx",
+    "dockerls",
+    "docker_compose_language_service",
+    "astro",
+    "svelte",
+    "clangd",
 }
 
 local tools = {

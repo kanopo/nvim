@@ -4,7 +4,7 @@ vim.opt.backup = false -- Don't create backup files
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.cmdheight = 1 -- Height of the command bar
 vim.opt.completeopt = "menuone,noselect" -- Completion options (for nvim-cmp)
-vim.opt.conceallevel = 0 -- Make `` visible in markdown files
+vim.opt.conceallevel = 3 -- Make `` visible in markdown files
 vim.opt.fileencoding = "utf-8" -- Encoding written to file
 vim.opt.hlsearch = true -- Highlight all matches on previous search
 vim.opt.ignorecase = true -- Ignore case in search patterns
@@ -48,3 +48,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.opt.showtabline = 1
+
+
+-- lang spell cheecking for italian and english
+vim.opt.spell = true
+vim.opt.spelllang = "en,it"
