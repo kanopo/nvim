@@ -111,12 +111,9 @@ return {
 				})
 			elseif server == "clangd" then
 				require("lspconfig")[server].setup({
-                    cmd = {
-                        "clangd",
-                        "--fallback-style=Google",
-                    },
 					on_attach = on_attach,
 					capabilities = capabilities,
+					cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
 				})
 			else
 				require("lspconfig")[server].setup({
