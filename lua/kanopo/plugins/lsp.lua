@@ -8,12 +8,12 @@ local servers = {
 	"texlab",
 	"pyright",
 	"rust_analyzer",
-    "htmx",
-    "dockerls",
-    "docker_compose_language_service",
-    "astro",
-    "svelte",
-    "clangd",
+	"htmx",
+	"dockerls",
+	"docker_compose_language_service",
+	"astro",
+	"svelte",
+	"clangd",
 }
 
 local tools = {
@@ -164,6 +164,12 @@ local M = {
 							},
 						},
 					},
+				})
+			elseif server == "clangd" then
+				require("lspconfig")[server].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
 				})
 			else
 				require("lspconfig")[server].setup({
