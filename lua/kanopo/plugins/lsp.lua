@@ -1,9 +1,14 @@
 local servers = {
 	"lua_ls",
+    "pyright",
+    "ltex",
 }
 local tools = {
 	"luacheck",
 	"stylua",
+    "flake8",
+    "black",
+    "latexindent",
 }
 
 return {
