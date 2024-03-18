@@ -1,14 +1,14 @@
 local servers = {
 	"lua_ls",
-    "pyright",
-    "ltex",
+	"pyright",
+	"ltex",
 }
 local tools = {
 	"luacheck",
 	"stylua",
-    "flake8",
-    "black",
-    "latexindent",
+	"flake8",
+	"black",
+	"latexindent",
 }
 
 return {
@@ -85,6 +85,21 @@ return {
 							diagnostics = {
 								globals = { "vim" },
 							},
+						},
+					},
+				})
+			elseif server == "ltex" then
+				require("lspconfig")[server].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+					settings = {
+						ltex = {
+							enabled = true,
+							formatter = "latexindent",
+							formatter_options = {
+								indent = 2,
+							},
+							language = "en, it",
 						},
 					},
 				})
