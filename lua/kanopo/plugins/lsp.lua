@@ -2,6 +2,11 @@ local servers = {
 	"lua_ls",
 	"pyright",
 	"ltex",
+	"clangd",
+	"tsserver",
+	"tailwindcss",
+	"gopls",
+    "marksman"
 }
 local tools = {
 	"luacheck",
@@ -9,6 +14,7 @@ local tools = {
 	"flake8",
 	"black",
 	"latexindent",
+	"eslint_d",
 }
 
 return {
@@ -102,6 +108,15 @@ return {
 							language = "en, it",
 						},
 					},
+				})
+			elseif server == "clangd" then
+				require("lspconfig")[server].setup({
+                    cmd = {
+                        "clangd",
+                        "--fallback-style=Google",
+                    },
+					on_attach = on_attach,
+					capabilities = capabilities,
 				})
 			else
 				require("lspconfig")[server].setup({

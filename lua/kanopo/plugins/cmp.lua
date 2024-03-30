@@ -24,16 +24,16 @@ return {
 				"rafamadriz/friendly-snippets",
 			},
 		},
-		{
-			"zbirenbaum/copilot-cmp",
-			event = "InsertEnter",
-			dependencies = {
-				{
-					"zbirenbaum/copilot.lua",
-					event = "InsertEnter",
-				},
-			},
-		},
+		-- {
+		-- 	"zbirenbaum/copilot-cmp",
+		-- 	event = "InsertEnter",
+		-- 	dependencies = {
+		-- 		{
+		-- 			"zbirenbaum/copilot.lua",
+		-- 			event = "InsertEnter",
+		-- 		},
+		-- 	},
+		-- },
 		{
 			"onsails/lspkind-nvim",
 			event = "InsertEnter",
@@ -44,13 +44,13 @@ return {
 		local luasnip = require("luasnip")
 		require("luasnip/loaders/from_vscode").lazy_load()
 		local lspkind = require("lspkind")
-
-		require("copilot").setup({
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-		})
-
-		require("copilot_cmp").setup()
+		--
+		-- require("copilot").setup({
+		-- 	suggestion = { enabled = false },
+		-- 	panel = { enabled = false },
+		-- })
+		--
+		-- require("copilot_cmp").setup()
 
 		local check_backspace = function()
 			local col = vim.fn.col(".") - 1
@@ -128,7 +128,7 @@ return {
 				}),
 			},
 			sources = {
-				{ name = "copilot" },
+				-- { name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "buffer" },

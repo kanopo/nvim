@@ -55,3 +55,6 @@ vim.opt.undofile = true -- persistent undo
 
 -- UI
 vim.opt.wrap = false -- don't wrap lines
+
+
+vim.opt.conceallevel = 2

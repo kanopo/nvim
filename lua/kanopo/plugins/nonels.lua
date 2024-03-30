@@ -17,6 +17,9 @@ return {
 
 				-- latex
 				formatting.latexindent,
+
+				-- javascript / typescript
+				diagnostics.eslint_d,
 			},
 		})
 	end,
