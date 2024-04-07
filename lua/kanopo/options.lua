@@ -47,14 +47,11 @@ vim.opt.smarttab = true -- Makes tabbing smarter
 vim.opt.spell = true
 vim.opt.spelllang = "en,it"
 
-
 vim.opt.writebackup = false -- disable backup
 vim.opt.updatetime = 300 -- faster completion
 vim.opt.undofile = true -- persistent undo
 
-
 -- UI
 vim.opt.wrap = false -- don't wrap lines
-
 
 vim.opt.conceallevel = 2

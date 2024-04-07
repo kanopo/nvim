@@ -1,4 +1,8 @@
 return {
     "stevearc/dressing.nvim",
-    opts = true
+    opts = {
+        inputs = {
+            enable = true,
+        }
+    },
 }
