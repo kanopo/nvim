@@ -1,6 +1,7 @@
 local servers = {
     "lua_ls",
-    "pyright",
+    -- "pyright",
+    "jedi_language_server",
     "ltex",
     "clangd",
     "tsserver",
