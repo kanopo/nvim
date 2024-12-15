@@ -7,7 +7,6 @@ return {
         "MunifTanjim/nui.nvim",
     },
     keys = {
-        -- { "<leader>t", "<cmd>Neotree current<cr>", desc = "Find current file in neotree" },
-        { "<leader>fe", "<cmd>Neotree current<cr>", desc = "Find current file in neotree" },
+        { "<leader>fe", "<cmd>Neotree toggle<cr>", desc = "Toggle file explorer" },
     }
 }

@@ -1,6 +1,7 @@
 local lsp_servers = {
     "lua_ls",
-    "ltex",
+    -- "ltex",
+    "texlab"
 }
 
 local on_attach = function(_, bufnr)
