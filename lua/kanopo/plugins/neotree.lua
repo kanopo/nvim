@@ -5,9 +5,9 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
-        "3rd/image.nvim",
     },
     keys = {
-        { "<leader>t", "<cmd>Neotree current<cr>", desc = "Find current file in neotree" },
+        -- { "<leader>t", "<cmd>Neotree current<cr>", desc = "Find current file in neotree" },
+        { "<leader>fe", "<cmd>Neotree current<cr>", desc = "Find current file in neotree" },
     }
 }

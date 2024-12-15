@@ -10,13 +10,16 @@ return {
     },
     config = function()
         require('telescope').setup {
-            defaults = {
-                theme = "ivy",
+            pickers = {
+                find_files = {
+                    hidden = true,
+                    prompt_prefix = "🔍 ",
+                },
+                live_grep = {
+                    hidden = true,
+                    prompt_prefix = "🔍 ",
+                },
             },
-            -- pickers = {
-            --     find_files = {
-            --     }
-            -- },
             extensions = {
                 fzf = {
                     fuzzy = true,
@@ -29,6 +32,9 @@ return {
         require('telescope').load_extension('fzf')
     end,
     keys = {
-        {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Telescope [F]ind [F]iles"}
+        { "<leader>ff", "<cmd>Telescope find_files<cr>",  desc = "[F]ind [F]iles" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>",   desc = "[F]ind [H]elp" },
+        { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "[F]ind [D]iadgnostics" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>",   desc = "[F]ind [G]rep" },
     }
 }

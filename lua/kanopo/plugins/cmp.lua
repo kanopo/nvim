@@ -25,7 +25,6 @@ return {
                 "rafamadriz/friendly-snippets",
             },
         },
-        -- BUG: removed copilot because make me a worst developer :(
         {
             "zbirenbaum/copilot-cmp",
             event = "InsertEnter",
@@ -68,8 +67,6 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
                 ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-                ["<Down>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-                ["<Up>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-c>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-e>"] = cmp.mapping({
@@ -127,20 +124,6 @@ return {
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = false,
             },
-            -- window = {
-            --     completion = {
-            --         border = "rounded",
-            --         winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,FloatBorder:FloatBorder,Search:None",
-            --         col_offset = -3,
-            --         side_padding = 1,
-            --         scrollbar = false,
-            --         scrolloff = 8,
-            --     },
-            --     documentation = {
-            --         border = "rounded",
-            --         winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None",
-            --     },
-            -- },
         })
     end,
 }
