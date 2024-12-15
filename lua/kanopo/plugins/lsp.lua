@@ -4,6 +4,11 @@ local lsp_servers = {
     "texlab"
 }
 
+local tools = {
+    "luacheck",
+    "latexindent"
+}
+
 local on_attach = function(_, bufnr)
     local map = function(key, func, desc)
         vim.keymap.set("n", key, func, { noremap = true, silent = true, desc = desc })
@@ -26,6 +31,7 @@ return {
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
         'nvim-telescope/telescope.nvim',
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
         {
             "folke/lazydev.nvim",
             ft = "lua",
@@ -38,6 +44,9 @@ return {
     },
     config = function()
         require("mason").setup()
+        require("mason-tool-installer").setup({
+            ensure_installed = tools,
+        })
         require("mason-lspconfig").setup({
             ensure_installed = lsp_servers,
             automatic_installation = true
