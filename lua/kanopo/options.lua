@@ -27,11 +27,15 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
-vim.termguicolor = true -- True color support
+vim.termguicolor = true     -- True color support
 
 vim.opt.writebackup = false -- disable backup
-vim.opt.updatetime = 300 -- faster completion
-vim.opt.undofile = true -- persistent undo
+vim.opt.updatetime = 300    -- faster completion
+vim.opt.undofile = true     -- persistent undo
 
-vim.opt.wrap = false -- don't wrap lines
+vim.opt.wrap = false        -- don't wrap lines
 vim.opt.conceallevel = 2
+
+-- lang spell cheecking for italian and english
+vim.opt.spell = true
+vim.opt.spelllang = "en,it"
